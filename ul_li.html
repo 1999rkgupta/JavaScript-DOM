@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            background-color: #333;
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+            width: 70%;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        li {
+            height: 30px;
+            padding: 3px;
+            color: white;
+            font-size: 18px;
+            border-bottom: 2px solid gray;
+            text-align: left;
+
+        }
+
+        span {
+            color: orange;
+            font-size: 20px;
+        }
+
+        input {
+            width: 300px;
+            background-color: #555;
+            color: rgb(227, 226, 226);
+            height: 30px;
+            padding-left: 9px;
+            font-size: 17px;
+            margin-bottom: 20px;
+            margin-top: 10px;
+            text-align: left;
+            border-radius: 6px;
+
+        }
+
+        button {
+            margin-left: 10px;
+            padding: 6px 9px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bolder;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <form action="">
+            <input type="text" name="" id="" placeholder="Enter value to add to list">
+            <button>Submit</button>
+        </form>
+        <article>
+            <!-- <input type="text" name="" id=""> -->
+            <ul>
+                <li>Java</li>
+                <li>Python</li>
+                <li>Ruby</li>
+                <li>Pearl</li>
+                <li>Javascript</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>React</li>
+                <li>Angular</li>
+                <li>Node</li>
+            </ul>
+            <br>
+            <span></span>
+        </article>
+    </section>
+    <script>
+        // let li = document.querySelectorAll("li")
+        // let span = document.querySelector("span")
+        // li.forEach(list => {
+        //     // add an event
+        //     // to fetch values
+        //     list.addEventListener("click", e => {
+        //         span.innerHTML = e.target.innerHTML
+        //         // console.log(e.target.innerHTML);
+        //     })
+
+        //     // to remove values
+        //     // list.addEventListener("click", e => {
+        //     //     e.target.remove()
+        //     //     span.innerHTML = e.target.innerHTML
+        //     // })
+        // })
+
+        // let input = document.querySelector("input")
+        // let value = ""
+        // input.addEventListener("keyup", e => {
+        //     if (e.key === "Enter") {
+        //         value = e.target.value
+        //         console.log("hello");
+        //     }
+        // })
+        // console.log(value);
+        // setInterval(function () {
+        //     console.log(value);
+        // }, 2000)
+
+
+        // let input = document.querySelector("input")
+        // input.addEventListener("keyup", e => {
+        //     if (e.key === "Enter") {
+        //         let value = e.target.value
+        //         GetValue(value) // calling function
+        //     }
+        // })
+
+        // let list = document.querySelectorAll("li")
+        // list.forEach(li => {
+        //     li.addEventListener("click", e => {
+        //         e.target.remove()
+        //     })
+        // })
+
+        // function GetValue(value) {
+        //     return value
+        // }
+
+        // // called function
+        // function GetValue(value) {
+        //     // console.log(value);
+        //     let val=value
+        //     console.log(val);
+        //     if(val===""){
+        //         alert("please enter detail")
+        //     }
+        // }
+
+        // // take input from user and add to list and on clicking on list it should removed from the list
+        // let ul = document.querySelector("ul")
+        // let list = document.querySelectorAll("li")
+        // let input = document.querySelector("input")
+        // let form = document.querySelector("form")
+        // let span = document.querySelector("span")
+        // form.addEventListener("submit", e => {
+        //     e.preventDefault()
+        //     let value = e.target[0].value
+        //     // console.log(value);
+        //     let li = document.createElement("li")
+        //     li.innerText = value
+        //     input.value = '';
+        //     span.innerHTML = ` Added "${li.innerText}" to list`
+        //     ul.appendChild(li)
+        //     // console.log(li);
+        //     li.addEventListener("click", e => {
+        //         e.target.remove()
+        //         span.innerHTML = ` Removed "${li.innerText}" from list`
+
+        //     })
+        // })
+
+        // list.forEach(li => {
+        //     li.addEventListener("click", e => {
+        //         e.target.remove()
+        //         span.innerHTML = ` Removed "${li.innerText}" from list`
+        //     })
+        // })
+
+        // fetch input values
+        // input.addEventListener("keyup", e => {
+        //     if (e.key === "Enter") {
+        //         let value = e.target.value
+        //         GetValue(value) // calling function
+        //     }
+        // })
+
+        // function GetValue(value){
+        //     return value
+        // }
+
+        let span = document.querySelector("span")
+        let input = document.querySelector("input")
+        let form = document.querySelector("form")
+        let ul = document.querySelector("ul")
+
+        // get form value
+        form.addEventListener("submit", e => {
+            e.preventDefault()
+            let value = e.target[0].value
+            let li = document.createElement("li")
+            li.innerText = value
+            ul.appendChild(li)
+            span.innerHTML = `Added "${li.innerText}" to list`
+            input.value = '';
+        })
+        // remove li
+        ul.addEventListener("click", e => {
+            if (e.currentTarget) {
+                let li = document.createElement("li")
+                e.target.remove()
+                span.innerHTML = ` Removed "${li.innerText}" from list`
+            }
+        })
+    </script>
+</body>
+
+</html>
