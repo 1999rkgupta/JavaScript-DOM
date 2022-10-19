@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #444;
+        }
+
+        #formBlock {
+            height: auto;
+            width: 400px;
+            margin: 20px auto;
+            background-color: #999;
+            padding: 3%;
+        }
+
+        #formBlock>form {
+            /* margin: 20px; */
+            text-align: center;
+        }
+
+        #formBlock label {
+            display: inline-block;
+            text-align: left;
+            width: 20%;
+            font-weight: bold;
+        }
+
+        #formBlock input {
+            width: 62%;
+            margin: 7px;
+            height: 25px;
+        }
+
+        #formBlock button {
+            padding: 5px 9px;
+            border: none;
+            background-color: rgba(0, 179, 255, 0.57);
+            color: white;
+            font-weight: bold;
+            margin-top: 10px;
+            letter-spacing: 2px;
+        }
+
+        #listBlock {
+            height: auto;
+            width: 80%;
+            margin: 0 auto;
+            background-color: rgb(162, 159, 159);
+        }
+
+        #listBlock th,
+        td {
+            width: 320px;
+            height: 33px;
+            border: 2px solid rgb(124, 114, 74);
+            text-align: center;
+        }
+
+        th {
+            padding: 5px 0;
+            color: rgb(63, 28, 95);
+        }
+
+        .delete,
+        .edit {
+            padding: 2px 6px;
+            background-color: red;
+            color: white;
+            border-radius: 2px;
+            cursor: pointer;
+            border: 2px solid darkred;
+        }
+
+        #listBlock>table {
+            border-collapse: collapse;
+        }
+
+        .edit {
+            background-color: rgba(23, 126, 23, 0.78);
+            border: 2px solid darkgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="formBlock">
+        <form action="">
+            <label for="nameInput">Name</label>
+            <input type="text" name="name" id="nameInput" placeholder="Enter Your Name">
+            <label for="eMail">Email</label>
+            <input type="email" name="email" id="eMail" placeholder="Enter Your Email">
+            <label for="company">Company</label>
+            <input type="text" name="" id="company" placeholder="Enter Company Name">
+            <button id="subBtn">SUBMIT</button>
+        </form>
+    </section>
+    <section id="listBlock">
+        <table>
+            <thead>
+                <th>NAME</th>
+                <th>EMAIL</th>
+                <th>COMPANY</th>
+                <th>OPERATION</th>
+            </thead>
+            <tbody id="tbody">
+
+            </tbody>
+        </table>
+    </section>
+    <script>
+        let name = document.querySelector("nameInput")
+        let email = document.querySelector("eMail")
+        let company = document.querySelector("company")
+        let form = document.querySelector("form")
+        form.addEventListener("submit", e => {
+                e.preventDefault()
+                let nameVal = e.target[0].value
+                let mailVal = e.target[1].value
+                let companyVal = e.target[2].value
+
+                if (nameVal === "" || mailVal === "") {
+                    alert("Please Enter Name and Email")
+                } else {
+                    let output = ""
+                    output += `<tr>
+                 <td>${nameVal}</td>
+                 <td>${mailVal}</td>
+                 <td>${companyVal}</td>
+                 <td id="remove"><span class="edit">edit</span>
+                <span class="delete">delete</span>
+                 </td>
+             </tr>`
+
+                    let tbody = document.getElementById("tbody")
+                    let tr = document.createElement("tr")
+                    tr.innerHTML = output
+                    tbody.appendChild(tr);
+                    e.target[0].value = ""
+                    e.target[1].value = ""
+                    e.target[2].value = ""
+
+                    document.querySelectorAll(".delete").forEach(span1 => {
+                        span1.addEventListener("click", e => {
+                            e.target.parentElement.parentElement.remove()
+                        })
+
+                    })
+                    document.querySelectorAll(".edit").forEach(span2 => {
+                        span2.addEventListener("click", e => {
+                            let name1 = e.path[2].children[0].innerHTML
+
+                            let email1 = e.path[2].children[1].innerHTML
+
+                            let company1 = e.path[2].children[2].innerHTML
+
+                            let inp1 = e.path[6].children[0].children[0].children[1]
+
+                            let inp2 = e.path[6].children[0].children[0].children[3]
+
+                            let inp3 = e.path[6].children[0].children[0].children[5]
+
+                            inp1.value = name1
+                            inp2.value = email1
+                            inp3.value = company1;
+
+                            e.path[6].children[0].children[0].children[6].innerHTML = "update"
+                            e.target.parentElement.parentElement.remove()
+                            form.addEventListener("submit", e => {
+                                e.path[0].children[6].innerHTML = "SUBMIT"
+                            })
+
+                        })
+                    })
+                }
+            }
+
+        )
+    </script>
+</body>
+
+</html>
