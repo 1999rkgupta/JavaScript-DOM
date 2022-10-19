@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #999;
+            position: relative;
+            width: 100%;
+            height: auto;
+        }
+
+        form {
+            height: auto;
+            padding: 10px;
+            width: 480px;
+            /* float: right; */
+            background-color: #999;
+            text-align: center;
+        }
+
+        input {
+            width: 250px;
+            height: 28px;
+            font-size: 19px;
+            margin: 8px 7px;
+            /* border-radius: 10%; */
+            padding-left: 5px;
+            cursor: pointer;
+        }
+
+        button {
+            padding: 4px 12px;
+        }
+
+        label {
+            text-align: left;
+            width: 120px;
+            font-weight: bold;
+            height: 25px;
+            display: inline-block;
+        }
+
+        .MainTable {
+            height: auto;
+            width: 440px;
+            margin-top: 3%;
+            margin-left: 2%;
+            border: 2px solid;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        .priceHead>tr>th {
+            font-size: 19px;
+            padding: 3px;
+            background-color: rgb(155, 196, 196);
+            border: 2px solid;
+        }
+
+        button {
+            background-color: rgb(116, 193, 209);
+            color: white;
+            font-weight: bold;
+
+        }
+
+        td {
+            border-right: 2px solid;
+            border-left: 2px solid;
+            padding: 4px;
+            font-weight: bold;
+            background-color: lightcyan;
+
+        }
+
+        span {
+            float: right;
+            margin-right: 5px;
+            color: red;
+        }
+
+        #totalBlock {
+            /* float: right; */
+            width: 470px;
+            height: auto;
+            /* position: absolute; */
+            right: 10%;
+            top: 130px;
+            /* background-color: yellowgreen; */
+        }
+
+        .secondTable {
+            height: auto;
+            width: 440px;
+            margin-top: 3%;
+            margin-left: 2%;
+            border: 2px solid;
+            border-collapse: collapse;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="formBlock">
+        <form action="">
+            <label for="pname">Patient Name</label>
+            <input type="text" name="" id="pname" placeholder="Enter Patient Name">
+            <label for="drop">Type of Test</label>
+            <input list="drop" placeholder="Select Test">
+            <datalist id="drop">
+                <option value="Full Body Checkup">
+                <option value="Blood Test">
+                <option value="Diabetes">
+                <option value="Stress Test">
+                <option value="X-Ray">
+                <option value="Ultrasound">
+                <option value="Swab">
+            </datalist>
+            <br>
+            <button>SUBMIT</button>
+        </form>
+    </section>
+    <section id="priceBlock">
+        <table class="MainTable">
+            <thead class="priceHead">
+                <tr>
+                    <th>Test Name</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+
+            </tbody>
+        </table>
+    </section>
+
+    <section id="totalBlock">
+        <table class="secondTable">
+            <thead class="priceHead">
+                <tr>
+                    <th style="border: none;">Patient Name</th>
+                    <th style="border: none;" class="patName"></th>
+                </tr>
+                <tr>
+                    <th>Test Name</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody id="totalBody">
+                <!-- <td class="tNameVal"></td> -->
+                <!-- <td class="tPriceVal"></td>  -->
+            </tbody>
+            <tfoot>
+                <tr style="border: 2px solid;">
+                    <td style="text-align:right">Total</td>
+                    <td class="totalValue"></td>
+                </tr>
+            </tfoot>
+        </table>
+    </section>
+    <script>
+        let form = document.querySelector("form")
+        form.addEventListener("submit", e => {
+            e.preventDefault()
+            if (e.target[1].value == "") {
+                alert("please select option")
+            } else {
+                let pname = e.target[0].value
+                let tname = e.target[1].value
+                let output = ""
+
+                if (tname == "Full Body Checkup") {
+                    output += `<tr>
+                         <td>${tname}</td>
+                         <td class="num">1500 <span><i class="fa-solid fa-trash"></i></span></td>
+                         </tr>`
+                } else if (tname == "Diabetes") {
+                    output += `<tr>
+                            <td>${tname}</td>
+                             <td class="num">1200 <span><i class="fa-solid fa-trash"></i></span></td>
+                            </tr>`
+                } else if (tname == "Blood Test") {
+                    output += `<tr>
+                    <td>${tname}</td>
+                    <td class="num">1400 <span><i class="fa-solid fa-trash"></i></span></td>
+                </tr>`
+                } else if (tname == "Stress Test") {
+                    output += `<tr>
+                    <td>${tname}</td>
+                    <td class="num">1600 <span><i class="fa-solid fa-trash"></i></span></td>
+                </tr>`
+                } else if (tname == "X-Ray") {
+                    output += `<tr>
+                    <td>${tname}</td>
+                    <td class="num">800 <span><i class="fa-solid fa-trash"></i></span></td>
+                </tr>`
+                } else if (tname == "Ultrasound") {
+                    output += `<tr>
+                    <td>${tname}</td>
+                    <td class="num">2200 <span><i class="fa-solid fa-trash"></i></span></td>
+                </tr>`
+                } else if (tname == "Swab") {
+                    output += `<tr>
+                    <td>${tname}</td>
+                    <td class="num">1400 <span><i class="fa-solid fa-trash"></i></span></td>
+                </tr>`
+                }
+
+                let patName = document.querySelector(".patName")
+                patName.innerHTML = e.target[0].value
+                patName.style.color = "Blue"
+
+                let tbody = document.getElementById("tbody")
+                let tr = document.createElement("tr")
+                tr.innerHTML = output
+                tbody.appendChild(tr)
+                // e.target[0].value = ""
+                e.target[1].value = ""
+
+                setTimeout((e) => {
+                    let tdVal1 = ""
+                    let tdVal2 = ""
+                    let tData = document.querySelectorAll("#tbody>tr").forEach(e => {
+                        tdVal1 = e.children[0].innerText;
+                        tdVal2 = e.children[1].innerText;
+                    })
+                    let tNameVal = document.querySelectorAll(".tNameVal").forEach(e => e.innerHTML =
+                        tdVal1)
+
+                    let tPriceVal = document.querySelectorAll(".tPriceVal").forEach(e => e.innerHTML =
+                        tdVal2)
+
+                    // console.log(tdVal1);
+                    // console.log(tdVal2);
+
+                    let totalBody = document.querySelector("#totalBody")
+                    let tr1 = document.createElement("tr")
+                    totalBody.appendChild(tr1)
+                    let td11 = document.createElement("td")
+                    td11.innerHTML = tdVal1
+                    tr1.appendChild(td11)
+                    let td12 = document.createElement("td")
+                    td12.innerHTML = tdVal2
+                    td12.className = "num"
+                    tr1.appendChild(td12)
+                }, 200)
+
+                // let tbody2 = document.getElementById("totalBody")
+                // let tr2 = document.createElement("tr")
+                // tr2.innerHTML = output
+                // tbody2.appendChild(tr2)
+
+                document.querySelectorAll("span").forEach(span1 => {
+                    span1.addEventListener("click", e => {
+                        e.target.parentElement.parentElement.parentElement.remove()
+                    })
+                })
+                setInterval((e) => {
+                    // console.log(sum);
+                    let sum = 0;
+                    let add;
+                    let td = document.querySelectorAll("#totalBody .num").forEach(e => {
+
+                        add = parseInt(e.innerText);
+                        sum = sum + add;
+                    })
+                    let totalValue = document.querySelector(".totalValue")
+                    totalValue.innerHTML = sum
+                }, 1000)
+            }
+        })
+    </script>
+</body>
+
+</html>

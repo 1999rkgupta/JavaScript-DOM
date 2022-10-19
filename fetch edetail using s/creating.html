@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 10px;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .cardSec {
+            width: 400px;
+            height: 300px;
+            background: rgba(139, 139, 197, 0.644);
+            border-radius: 10px;
+            margin: auto;
+        }
+
+        table {
+            width: 100%;
+            margin: auto;
+            text-align: center;
+            color: black;
+        }
+
+        table thead {
+            color: red;
+        }
+
+        /* table tbody tr td .imgs {
+            width: 150%;
+            height: 200%;
+            border-radius: 5px;
+        } */
+
+        #cardBlock {
+            height: 200px;
+            width: 350px;
+            /* background-color: rgb(176, 176, 176); */
+            transform: translate(200px, 50px);
+            position: relative;
+            display: none;
+            border-radius: 10px;
+            box-shadow: 1px 1px 14px red;
+            /* border: 2px solid red; */
+        }
+
+        img {
+            position: absolute;
+            right: 4%;
+            top: 12%;
+            height: 150px;
+            width: 120px;
+            border-radius: 25px;
+        }
+
+        aside {
+            position: absolute;
+            left: 6%;
+            top: 14%;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <form action="#" method="get" id="first">
+        <input list="dropdown" placeholder="Select employee from here" name="dropdown">
+        <datalist id="dropdown">
+            <!-- <option value="_">____</option> -->
+        </datalist>
+        <button id="btn">Submit</button>
+    </form>
+
+    <div id="cardBlock">
+
+    </div>
+
+    <!-- <section class="cardSec">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>emp-id</th>
+                    <th>company</th>
+                    <th>image</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </section> -->
+
+
+    <script src="./creating.js"></script>
+</body>
+
+</html>

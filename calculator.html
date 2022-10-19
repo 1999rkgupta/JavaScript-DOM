@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            padding: 6px 19px;
+            font-size: 25px;
+            font-weight: bolder;
+            background-color: lightcyan;
+            border: 2px solid rgb(98, 165, 165);
+            border-radius: 30%;
+        }
+        label{
+            width: 150px;
+            text-align: right;
+            margin-right: 20px;
+            font-weight: bolder;
+            display: inline-block;
+            color: blue;
+        }
+        input{
+            height: 30px;
+            font-size: 22px;
+            width: 200px;
+        }
+        #mainDiv{
+            height: 230px;
+            border-radius: 20px;
+            text-align: center;
+            width: 400px;
+            padding: 20px;
+            background-color: #999;
+            box-shadow: 1px 1px 14px blue;
+        }
+        #myDiv{
+            color: blue;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="mainDiv">
+        <label for="">Enter first Number</label>
+        <input type="text" name="" id="inp1" placeholder="Enter first number">
+        <br><br>
+        <label for="
+    ">Enter second number</label>
+        <input type="text" name="" id="inp2" placeholder="Enter second number">
+        <br><br>
+        <label for="">Result</label>
+        <input type="text" name="" id="inp3">
+        <br>
+        <br>
+        <button id="add">+</button>
+        <button id="sub">--</button>
+        <button id="mul">*</button>
+        <button id="div">/</button>
+        <button id="mod">%</button>
+        <div id="myDiv"></div>
+    </div>
+
+    <script>
+        let add1 = document.getElementById("add")
+        add1.onclick = function () {
+            let n1 = Number(document.getElementById("inp1").value)
+            let n2 = Number(document.getElementById("inp2").value)
+            document.getElementById("inp3").value = n1 + n2
+            document.getElementById("myDiv").innerHTML = `Result = ${n1+n2}`
+        }
+
+        let sub = document.getElementById("sub")
+        sub.onclick = function () {
+            let n1 = Number(document.getElementById("inp1").value)
+            let n2 = Number(document.getElementById("inp2").value)
+            document.getElementById("inp3").value = n1 - n2
+            document.getElementById("myDiv").innerHTML = `Result ${n1-n2}`
+        }
+
+        let mul = document.getElementById("mul")
+        mul.onclick = function () {
+            let n1 = Number(document.getElementById("inp1").value)
+            let n2 = Number(document.getElementById("inp2").value)
+            document.getElementById("inp3").value = n1 * n2
+            document.getElementById("myDiv").innerHTML = `Result ${n1*n2}`
+        }
+
+        var div = document.getElementById("div")
+        div.onclick = function () {
+            var n1 = Number(document.getElementById("inp1").value)
+            var n2 = Number(document.getElementById("inp2").value)
+            document.getElementById("inp3").value = n1 / n2
+            document.getElementById("myDiv").innerHTML = `Result ${n1/n2}`
+        }
+
+        var mod = document.getElementById("mod")
+        mod.onclick = function () {
+            var n1 = Number(document.getElementById("inp1").value)
+            var n2 = Number(document.getElementById("inp2").value)
+            document.getElementById("inp3").value = n1 % n2
+            document.getElementById("myDiv").innerHTML = `Result ${n1%n2}`
+        }
+    </script>
+</body>
+
+</html>
