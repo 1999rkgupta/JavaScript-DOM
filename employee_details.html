@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details</title>
+    <style>
+        .delete {
+            float: right;
+            padding: 3px 13px;
+            background-color: red;
+            color: white;
+            border-radius: 2px;
+            cursor: pointer;
+            border: 2px solid darkred;
+        }
+
+        table {
+            width: 95%;
+            text-align: center;
+            margin: 0 auto;
+            padding: 10px;
+            background-color: #efefef;
+            border-collapse: collapse;
+            display: block;
+        }
+
+        th,
+        tr,
+        td {
+            border: 1px solid #111;
+            width: 200px;
+        }
+
+        thead {
+            width: 100%;
+            background-color: rgb(146, 145, 143);
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <article>
+            <div>
+                <table>
+                    <thead>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Salary</th>
+                        <th>Gender</th>
+                        <th>Designation</th>
+                        <th>Experience</th>
+                        <th>Education</th>
+                        <th>City</th>
+                        <th>Skills</th>
+                        <th>Delete</th>
+                    </thead>
+                    <tbody id="tbody">
+                    </tbody>
+                </table>
+            </div>
+        </article>
+    </section>
+    <button id="colorBtn">Color Change</button>
+    <script>
+        let employees = [{
+                emp_id: "A1",
+                emp_name: "Mohan",
+                emp_salary: 23000,
+                emp_gender: "Male",
+                emp_designation: "Developer",
+                emp_experience: "1 Year ",
+                emp_education: "BTech ",
+                emp_city: "Delhi ",
+                emp_skills: "full stack"
+            },
+            {
+                emp_id: "A2",
+                emp_name: "Sohan",
+                emp_salary: 23000,
+                emp_gender: "Male",
+                emp_designation: "Developer",
+                emp_experience: "1 Year ",
+                emp_education: "BTech ",
+                emp_city: "Delhi ",
+                emp_skills: "full stack"
+            },
+            {
+                emp_id: "A3",
+                emp_name: "Ram",
+                emp_salary: 23000,
+                emp_gender: "Male",
+                emp_designation: "Developer",
+                emp_experience: "1 Year ",
+                emp_education: "BTech ",
+                emp_city: "Delhi ",
+                emp_skills: "full stack"
+            },
+            {
+                emp_id: "A4",
+                emp_name: "Rohan",
+                emp_salary: 23000,
+                emp_gender: "Male",
+                emp_designation: "Developer",
+                emp_experience: "1 Year ",
+                emp_education: "BTech ",
+                emp_city: "Delhi ",
+                emp_skills: "full stack"
+            },
+            {
+                emp_id: "A5",
+                emp_name: "Sita",
+                emp_salary: 23000,
+                emp_gender: "Female",
+                emp_designation: "Developer",
+                emp_experience: "1 Year ",
+                emp_education: "BTech ",
+                emp_city: "Delhi ",
+                emp_skills: "full stack"
+            },
+            {
+                emp_id: "A6",
+                emp_name: "Gita",
+                emp_salary: 23000,
+                emp_gender: "Female",
+                emp_designation: "Developer",
+                emp_experience: "1 Year ",
+                emp_education: "BTech ",
+                emp_city: "Delhi ",
+                emp_skills: "full stack"
+            },
+            {
+                emp_id: "A7",
+                emp_name: "Ranjan",
+                emp_salary: 23000,
+                emp_gender: "Male",
+                emp_designation: "Developer",
+                emp_experience: "1 Year ",
+                emp_education: "BTech ",
+                emp_city: "Delhi ",
+                emp_skills: "full stack"
+            },
+            {
+                emp_id: "A8",
+                emp_name: "Aman",
+                emp_salary: 23000,
+                emp_gender: "Male",
+                emp_designation: "Developer",
+                emp_experience: "1 Year ",
+                emp_education: "BTech ",
+                emp_city: "Delhi ",
+                emp_skills: "full stack"
+            },
+        ]
+
+        let output = ""
+        for (let emp of employees) {
+            output += `<tr>
+                <td>${emp.emp_id}</td>
+                <td>${emp.emp_name}</td>
+                <td>${emp.emp_salary}</td>
+                <td>${emp.emp_gender}</td>
+                <td>${emp.emp_designation}</td>
+                <td>${emp.emp_experience}</td>
+                <td>${emp.emp_education}</td>
+                <td>${emp.emp_city}</td>
+                <td>${emp.emp_skills}</td>
+                <td id="remove"><span class="delete">Delete</span></td>
+                </tr>`
+        }
+
+        let tbody = document.getElementById("tbody").innerHTML = output
+        document.querySelectorAll(".delete").forEach(span => {
+            span.addEventListener("click", e => {
+                // e.target.parentElement.parentElement.remove()
+                e.target.parentElement.parentElement.remove()
+            })
+
+        })
+        let tr = document.querySelector("tr th:nth-child(2)")
+        // console.log(tr);
+        // console.log(tr.nextElementSibling);
+        // console.log(tr.previousElementSibling);
+        tr.nextElementSibling.style.color = "red";
+        tr.nextElementSibling.nextElementSibling.nextElementSibling.style.color = "blue";
+        tr.previousElementSibling.style.color = "crimson"
+
+
+        // color changer
+        let colorBtn = document.getElementById("colorBtn")
+        colorBtn.addEventListener("click", e => {
+            let n1 = parseInt(Math.random() * 100)
+            let n2 = parseInt(Math.random() * 200)
+            let n3 = parseInt(Math.random())
+
+            console.log(n2);
+            document.body.style.background = `rgb(${n2},${n1},${n3})`
+            console.log(n1);
+        })
+    </script>
+</body>
+
+</html>
