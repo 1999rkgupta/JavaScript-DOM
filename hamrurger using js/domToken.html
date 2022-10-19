@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Dropdown and Hamburger</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #555;
+        }
+
+        /* .active {
+            background-color: rgba(134, 164, 89, 0.623);
+            color: rgb(92, 16, 16);
+            padding: 10px;
+        } */
+        /*
+        button {
+            padding: 3px 5px;
+            margin-left: 20px;
+            margin-top: 10px;
+            background-color: rgb(210, 166, 107);
+            border-radius: 6px;
+            border-color: rgb(121, 147, 81);
+        } */
+        i {
+            font-size: 35px;
+        }
+
+        #navbarBlock {
+            height: 70px;
+            width: 100%;
+            border-bottom: 2px solid #ffc1070f;
+        }
+
+        #navbarBlock>article {
+            height: inherit;
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menuBlock>nav>ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .menuBlock>nav>ul>li>a {
+            text-decoration: none;
+            color: white;
+            padding: 5px 20px;
+        }
+
+        .menuBlock>li {
+            position: relative;
+        }
+
+        aside.dropdown {
+            width: 180px;
+            position: absolute;
+            right: 20px;
+            padding: 10px;
+            top: 50px;
+            height: 145px;
+            background-color: #444448;
+        }
+
+        .dropdown>ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dropdown>ul>li>a {
+            text-decoration: none;
+            padding: 10px;
+            display: inline-block;
+            color: yellow;
+            border-bottom: 1px solid #ffff0052;
+            width: 100%;
+        }
+
+        .dropdown>ul>li>a:hover {
+            background-color: #111;
+            color: #fff;
+            transition: ease all 0.6s;
+        }
+
+        .dropdown>ul>li:last-child a {
+            border: none;
+        }
+
+        /* hamBlock */
+        #hamBlock {
+            padding: 6px 15px;
+            border-radius: 6px;
+            border: none;
+            position: relative;
+            top: 40px;
+            z-index: 3;
+        }
+
+        #menuList {
+            list-style: none;
+        }
+
+        #menuList a {
+            text-decoration: none;
+            color: crimson;
+            padding: 5px;
+            width: 100%;
+            display: inline-block;
+            border-bottom: 1px solid #ca172691;
+        }
+
+        #menuList>li:last-child a {
+            border: none;
+        }
+
+        #menuList>li>a:hover {
+            background-color: rgb(132, 98, 98);
+            color: #fff;
+            transition: ease all 0.6s;
+        }
+
+        #contentMenu {
+            transition: ease-in-out all 1.2s;
+            border-radius: 7px;
+        }
+
+        /* Video Block */
+
+        #btnPlay {
+            position: absolute;
+            padding: 10px 20px;
+            left: 20%;
+            top: 80%;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* audioBlock */
+        #audio {
+            position: absolute;
+            top: 150%;
+        }
+
+        #imagePlay {
+            position: absolute;
+            left: 30%;
+            top: 150%;
+            height: 100px;
+            width: 100px;
+            border-radius: 20%;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="navbarBlock">
+        <article>
+            <div class="logoBlock">LOGO</div>
+            <div class="menuBlock" class="swipeLeft">
+                <nav>
+                    <ul id="dropMain">
+                        <li><a href="">Home</a></li>
+                        <li id="dropBlock">Profile
+                            <aside id="dropdown" style="display: none;">
+                                <ul>
+                                    <li><a href="">Dropdown1</a></li>
+                                    <li><a href="">Dropdown2</a></li>
+                                    <li><a href="">Dropdown3</a></li>
+                                </ul>
+                            </aside>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </article>
+    </section>
+    <button id="hamBlock"><i class="fa-solid fa-bars"></i></button>
+    <div id="contentMenu">
+        <ul id="menuList">
+            <li><a href="">Home</a></li>
+            <li><a href="">About Us</a></li>
+            <li><a href="">Contact</a></li>
+            <li><a href="">Login</a></li>
+            <li><a href="">Register</a></li>
+        </ul>
+    </div>
+    <br>
+    
+
+        <script src="./DOMTokenList.js"></script>
+</body>
+
+</html>
